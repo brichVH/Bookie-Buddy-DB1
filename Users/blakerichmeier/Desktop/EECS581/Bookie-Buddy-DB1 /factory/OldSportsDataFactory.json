@@ -1,0 +1,9 @@
+{
+	"name": "OldSportsDataFactory",
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "da139b6c-5793-4d71-a3d9-7941e69e9397",
+		"tenantId": "3c176536-afe6-43f5-b966-36feabbe3c1a"
+	}
+}
