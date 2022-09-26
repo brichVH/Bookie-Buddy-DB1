@@ -1,0 +1,16 @@
+{
+	"name": "p1_1_ds_table",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "InitialData",
+			"table": "CBBTXT"
+		}
+	}
+}

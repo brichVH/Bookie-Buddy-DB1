@@ -1,0 +1,356 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"additionalColumns": [
+							{
+								"name": "filename",
+								"value": "$$FILEPATH"
+							}
+						],
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*.xls",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "TEAM",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TEAM",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "CONF",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CONF",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "G",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "G",
+									"type": "Int16",
+									"physicalType": "smallint"
+								}
+							},
+							{
+								"source": {
+									"name": "W",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "W",
+									"type": "Int16",
+									"physicalType": "smallint"
+								}
+							},
+							{
+								"source": {
+									"name": "ADJOE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ADJOE",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "ADJDE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ADJDE",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "BARTHAG",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "BARTHAG",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "EFG_O",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "EFG_O",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "EFG_D",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "EFG_D",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "TOR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TOR",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "TORD",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TORD",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "ORB",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ORB",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "DRB",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DRB",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "FTR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FTR",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "FTRD",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FTRD",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "2P_O",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "2P_O",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "2P_D",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "2P_D",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "3P_O",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "3P_O",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "3P_D",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "3P_D",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "ADJ_T",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ADJ_T",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "WAB",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "WAB",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "POSTSEASON",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "POSTSEASON",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SEED",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "SEED",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "filename",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FileName",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "pl1ds_source",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "p1_1_ds_table",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
