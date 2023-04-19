@@ -19,9 +19,9 @@ import re
 from datetime import datetime
 
 # azure blob storage api credentials
-storage_account_key = "nkkvw1xse99lhH2Cdf89T3PXbRpy/UAhdifhBddYew0QLOvcl8e2m/zMICpkFJt7+RufBQPgySLC+AStHxZGbQ=="
+storage_account_key = ""
 storage_account_name = "blakestorageaccount581"
-connection_string = "DefaultEndpointsProtocol=https;AccountName=blakestorageaccount581;AccountKey=nkkvw1xse99lhH2Cdf89T3PXbRpy/UAhdifhBddYew0QLOvcl8e2m/zMICpkFJt7+RufBQPgySLC+AStHxZGbQ==;EndpointSuffix=core.windows.net"
+connection_string = ""
 container_name = "csv-files"
 
 # upload to blob storage function
@@ -117,10 +117,6 @@ df['Tweets'] = df['Tweets'].apply(lambda x: x.replace('texas a&m', 'texas_a&m'))
 df['Tweets'] = df['Tweets'].apply(lambda x: x.replace('san diego state', 'san_diego_state'))
 df['Tweets'] = df['Tweets'].apply(lambda x: x.replace('florida atlantic', 'florida_atlantic'))
 
-print('\n\n\n\n')
-
-print(df.head)
-print(df.head)
 # show clean text
 
 #subjectivity and polarity
@@ -145,8 +141,6 @@ def GetAnalysis(score):
     return 'Positive'
 
 df['Analysis'] = df['Polarity'].apply(GetAnalysis)
-
-df
 
 j=1
 
